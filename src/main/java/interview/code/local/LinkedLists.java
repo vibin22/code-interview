@@ -1,6 +1,7 @@
 package interview.code.local;
 
 import java.util.HashSet;
+import java.util.Hashtable;
 
 /**
  * Created by vibinramakrishnan on 6/28/17.
@@ -8,7 +9,7 @@ import java.util.HashSet;
 public class LinkedLists {
     public static void main(String[] args) {
 
-        Node head = new Node(1);
+       /* Node head = new Node(1);
         head.appendToTail(2);
         head.appendToTail(3);
         head.appendToTail(4);
@@ -16,30 +17,62 @@ public class LinkedLists {
         head.appendToTail(6);
         head.appendToTail(6);
         head.appendToTail(6);
-        head.appendToTail(6);
+        head.appendToTail(6);*/
 
-       // System.out.println(deleteDups(head).print());
 
-       // System.out.println(head.print());
-       // local.challenge.code.Node afterdelete = deleteNode(head, 4);
 
-      //  System.out.println(afterdelete.print());
+        // System.out.println(deleteDups(head).print());
 
-     //   printKthToLast(head, 2);
+        // System.out.println(head.print());
+        // local.challenge.code.Node afterdelete = deleteNode(head, 4);
 
-        LinkedNode myNode = new LinkedNode("Vibin");
-        myNode.appendToTail("Nived");
-        myNode.appendToTail("Deepthi");
+        //  System.out.println(afterdelete.print());
+
+        //   printKthToLast(head, 2);
+
+        LinkedNode myNode = new LinkedNode(1);
+        myNode.appendToTail(2);
+        myNode.appendToTail(1);
+        myNode.appendToTail(1);
+        myNode.appendToTail(1);
+        myNode.appendToTail(2);
+        myNode.appendToTail("vibin");
+
         System.out.println(myNode.listAllNodes());
+        myNode = deleteDups(myNode);
+        System.out.println(myNode.listAllNodes());
+
+
     }
 
+    /************************************************************************************/
+    /**
+     * DELETE  DUPES from LinkedList
+     *
+     * @param n
+     */
+    public static LinkedNode deleteDups(LinkedNode n) {
+        Hashtable table = new Hashtable();
+        LinkedNode head = n;
+        LinkedNode previous = null;
+        while (n != null) {
+            if (table.containsKey(n.data)) {
+                previous.next = n.next;
+            } else {
+                table.put(n.data,true);
+                previous = n;
+            }
+            n = n.next;
+        }
+        return head;
+    }
 
     /**
      * DELETE  DUPES from LinkedList
      *
      * @param n
      */
-    public static Node deleteDups(Node n) {
+    public static Node deleteDupsintVersion(Node n) {
         HashSet<Integer> set = new HashSet<Integer>();
         Node head = n;
         Node previous = null;
@@ -55,6 +88,10 @@ public class LinkedLists {
         return head;
     }
 
+    /************************************************************************************/
+
+
+    
     /**
      * PRINT K th TO Nth NODE
      *
@@ -97,81 +134,79 @@ public class LinkedLists {
     }
 
 
-}
-
-
 //**************************************************
 
-class Node {
-    Node next = null;
-    int data;
+    public static class Node {
+        Node next = null;
+        int data;
 
-    public Node(int d) {
-        data = d;
-    }
-
-    void appendToTail(int d) {
-        Node end = new Node(d);
-        Node n = this;
-        while (n.next != null) {
-            //just moving the node to next until we find the last node
-            n = n.next;
+        public Node(int d) {
+            data = d;
         }
-        n.next = end;
-    }
 
-    int value() {
-        return this.data;
-    }
-
-    String print() {
-        StringBuilder strb = new StringBuilder();
-        Node tmp = this;
-        while (tmp != null) {
-            //System.out.println();
-            strb.append(tmp.value());
-            tmp = tmp.next;
+        void appendToTail(int d) {
+            Node end = new Node(d);
+            Node n = this;
+            while (n.next != null) {
+                //just moving the node to next until we find the last node
+                n = n.next;
+            }
+            n.next = end;
         }
-        return strb.toString();
+
+        int value() {
+            return this.data;
+        }
+
+        String print() {
+            StringBuilder strb = new StringBuilder();
+            Node tmp = this;
+            while (tmp != null) {
+                //System.out.println();
+                strb.append(tmp.value());
+                tmp = tmp.next;
+            }
+            return strb.toString();
+        }
     }
-}
 
 //***********************************************************
 
 
-class LinkedNode<T> {
-    private T data = null;
-    LinkedNode next = null;
+   public  static class LinkedNode<T> {
+        private T data = null;
+        LinkedNode next = null;
 
-    LinkedNode(T d) {
-        data = d;
-    }
-
-    void appendToTail(T d) {
-        LinkedNode end = new LinkedNode(d);
-        LinkedNode n = this;
-        while (n.next !=null) {
-            n=n.next;
+        LinkedNode(T d) {
+            data = d;
         }
-        n.next= end;
-    }
 
-    T value() {
-        return this.data;
-    }
-
-    String listAllNodes() {
-        StringBuilder strb = new StringBuilder();
-        LinkedNode tmp = this;
-        while (tmp != null) {
-
-            strb.append(tmp.value());
-            tmp = tmp.next;
+        void appendToTail(T d) {
+            LinkedNode end = new LinkedNode(d);
+            LinkedNode n = this;
+            while (n.next != null) {
+                n = n.next;
+            }
+            n.next = end;
         }
-        return strb.toString();
+
+        T value() {
+            return this.data;
+        }
+
+        String listAllNodes() {
+            StringBuilder strb = new StringBuilder();
+            LinkedNode tmp = this;
+            while (tmp != null) {
+
+                strb.append(tmp.value() + "\t ->" );
+                tmp = tmp.next;
+            }
+            return strb.toString();
+        }
     }
+
 }
-
 /*
 class Stack {
     local.challenge.code.Node top;
