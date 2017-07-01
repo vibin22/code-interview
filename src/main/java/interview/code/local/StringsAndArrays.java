@@ -1,4 +1,4 @@
-package local.challenge.code;
+package interview.code.local;
 
 /**
  * Created by vibinramakrishnan on 6/28/17.

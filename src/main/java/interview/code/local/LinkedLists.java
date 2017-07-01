@@ -1,4 +1,4 @@
-package local.challenge.code;
+package interview.code.local;
 
 import java.util.HashSet;
 
