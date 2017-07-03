@@ -13,6 +13,19 @@ public class JavaProblems {
 
     public static void main(String[] args) {
 
+        MyMap myMap = new MyMap();
+        myMap.put(1,"b");
+        myMap.put(2,"a");
+        System.out.println(myMap.getPutCount());
+
+
+        MyMap myMap2 = new MyMap();
+        myMap2.put(1,"b");
+        myMap2.put(2,"a");
+        myMap2.put(3,"g");
+        System.out.println(myMap2.getPutCount());
+
+
     }
 
 
@@ -24,8 +37,8 @@ public class JavaProblems {
      */
     public static class MyMap<K, V> extends HashMap<K, V> {
 
-        private static int putCount = 0;
-        private static int getCount = 0;
+        private int putCount = 0;
+        private int getCount = 0;
 
         @Override
         public V put(K key, V value) {
@@ -39,11 +52,11 @@ public class JavaProblems {
             return super.get(key);
         }
 
-        public int getPutCount() {
+        private  int getPutCount() {
             return putCount;
         }
 
-        public int getGetCount() {
+        private  int getGetCount() {
             return getCount;
         }
     }
