@@ -56,8 +56,6 @@ public class CodeChallenge {
 
                     if (j != lowerlimt) {
                         // move left
-                        // System.out.println("move left");
-                        //System.out.println(twod[i][j]);
 
                         if (val == twod[i][j - 1])
                             twod[i][j - 1] = 0;
@@ -65,39 +63,25 @@ public class CodeChallenge {
 
                     if (j != upperlimit) {
                         // move right
-                        // System.out.println("move right");
-                        // System.out.println(twod[i][j]);
                         if (val == twod[i][j + 1])
                             twod[i][j + 1] = 0;
                     }
 
                     if (i != lowerlimt) {
                         // move up
-                        // System.out.println("move up");
-                        //System.out.println(twod[i][j]);
                         if (val == twod[i + 1][j])
                             twod[i + 1][j] = 0;
-
                     }
 
                     if (i != upperlimit) {
                         // move down
-                        // System.out.println("move down");
-                        // System.out.println(twod[i][j]);
                         if (val == twod[i + 1][j])
                             twod[i + 1][j] = 0;
-
                     }
-
                     twod[i][j] = 0;
                     break;
-
                 }
-
-
             }
-
-
         }
 
         for (int[] row : twod) {

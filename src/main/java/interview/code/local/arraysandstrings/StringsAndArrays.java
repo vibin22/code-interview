@@ -1,4 +1,4 @@
-package interview.code.local;
+package interview.code.local.arraysandstrings;
 
 /**
  * Created by vibinramakrishnan on 6/28/17.
