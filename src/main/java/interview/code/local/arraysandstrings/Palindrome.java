@@ -48,7 +48,7 @@ public class Palindrome {
     }
 
     public static void main(String[] args) {
-        String pali = "Rats live on no evil star";
+        String pali = "malayaaml";
         System.out.println(isPermutationOfPalindrome(pali));
     }
 }

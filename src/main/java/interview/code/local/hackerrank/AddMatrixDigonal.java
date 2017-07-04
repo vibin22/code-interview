@@ -25,14 +25,14 @@ public class AddMatrixDigonal {
         int primedigonal = 0;
         int secdigonal = 0;
 
-
+// add prime diagonal
         for (int i=0;i<length;i++) {
             primedigonal= primedigonal+matrix[i][i];
         }
 
         int r = matrix.length - 1;
         int c = 0;
-
+// add second diagonal
         for (int i=0;i<length;i++) {
             secdigonal= secdigonal+ matrix[length-i-1][i];
         }
