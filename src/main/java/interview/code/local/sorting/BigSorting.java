@@ -17,13 +17,39 @@ public class BigSorting {
             {
                 a[i]=Double.parseDouble(str[i]);
             }
-            Arrays.sort(a);
-            for(int i=0;i<a.length;i++)
+           // Arrays.sort(a);
+
+           String[] b  =  bubbleSort(a,str);
+
+            for(int i=0;i<b.length;i++)
             {
-                str[i]=String.valueOf(a[i]);
-                System.out.println(( a[i]));
+                str[i]=String.valueOf(b[i]);
+                System.out.println(( b[i]));
             }
 
+    }
+
+    public static String[] bubbleSort(final double[] arr, String [] strAry) {
+
+        if (arr == null || arr.length <= 1) {
+            return strAry;
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                double tmp = 0;
+                String strTmp;
+                if (arr[i] > arr[j]) {
+                    tmp = arr[i];
+                    strTmp= strAry[i];
+                    arr[i] = arr[j];
+                    strAry[i] = strAry[j];
+                    arr[j] = tmp;
+                    strAry[j] = strTmp;
+                }
+            }
+        }
+        return strAry;
     }
 
 }
