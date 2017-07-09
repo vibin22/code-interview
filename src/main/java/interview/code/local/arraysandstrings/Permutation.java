@@ -4,6 +4,7 @@ package interview.code.local.arraysandstrings;
  * Created by vibinramakrishnan on 7/2/17.
  * Given two strings, write a method to decide if one is a permutation of the
    other.
+ * A string can have no more than one character that is odd.
  */
 public class Permutation {
 

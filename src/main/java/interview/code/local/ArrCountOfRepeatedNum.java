@@ -30,8 +30,7 @@ public class ArrCountOfRepeatedNum {
        String s =  sortByrank(intAry);
 
          System.out.println(s);
-
-
+        
     }
 
 
