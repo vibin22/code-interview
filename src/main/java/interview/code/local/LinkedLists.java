@@ -479,6 +479,18 @@ public class LinkedLists {
     public static class PartialSum {
         public LinkedlistNode sum = null;
         public int carry = 0;
+
+
+    }
+
+    void Print(Node head) {
+
+        StringBuilder strbldr = new StringBuilder();
+        Node temp = head;
+        while (temp!=null) {
+            System.out.println(temp.data);
+            temp=temp.next;
+        }
     }
 
 }
@@ -527,3 +539,5 @@ class Queue {
     }
 
 }*/
+
+

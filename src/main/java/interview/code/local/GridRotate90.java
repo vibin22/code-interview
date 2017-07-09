@@ -3,7 +3,7 @@ package interview.code.local;
 /**
  * Created by vibinramakrishnan on 7/1/17.
  */
-public class GridProblems {
+public class GridRotate90 {
 
     public static void main(String[] args) {
         int[][] grid1 = createGrid(3, 3);
@@ -13,7 +13,7 @@ public class GridProblems {
 
         int[][] rotate90 = rotate(grid1,3);
 
-        printGrid  (rotate90);
+        printGrid (rotate90);
 
     }
 

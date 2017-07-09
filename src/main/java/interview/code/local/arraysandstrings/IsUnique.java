@@ -8,14 +8,16 @@ package interview.code.local.arraysandstrings;
 public class IsUnique {
 
     public static boolean isUniqueChars(String str) {
+
+        // ASCII has 128 unique characters, if more than 128 means , it is not unique.
         if (str.length() > 128) {
             return false;
         }
-        boolean[] char_set = new boolean[128];
+        boolean[] char_present = new boolean[128];
         for (int i = 0; i < str.length(); i++) {
             int val = str.charAt(i);
-            if (char_set[val]) return false;
-            char_set[val] = true;
+            if (char_present[val]) return false;
+            char_present[val] = true;
         }
         return true;
     }

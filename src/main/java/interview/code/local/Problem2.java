@@ -14,12 +14,4 @@ public class Problem2 {
         }
 
     }
-
-
-
-
-
-
-
-
 }

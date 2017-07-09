@@ -24,7 +24,9 @@ public class Algorithams {
 
       //  System.out.println(addDignalElements(twoDm));
 
-        sampletest();
+     //   sampletest();
+
+        System.out.println( addDignalElements(twoDm) );
 
     }
 

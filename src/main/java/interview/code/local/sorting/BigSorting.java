@@ -42,8 +42,10 @@ public class BigSorting {
                 if (arr[i] > arr[j]) {
                     tmp = arr[i];
                     strTmp= strAry[i];
+
                     arr[i] = arr[j];
                     strAry[i] = strAry[j];
+
                     arr[j] = tmp;
                     strAry[j] = strTmp;
                 }
