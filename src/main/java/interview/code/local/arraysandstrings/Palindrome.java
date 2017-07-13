@@ -28,6 +28,7 @@ public class Palindrome {
             }
         }
         // return boolean , based on only one odd letter exist not more than one , or non baab
+        // a string can have no more than one character odd.
         return countOdd <= 1;
     }
 

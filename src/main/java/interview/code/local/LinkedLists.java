@@ -67,7 +67,6 @@ public class LinkedLists {
         LinkedlistNode r = addLists(n1, n2);
 
         System.out.println(r.listAllNodes());
-
         recursion(7);
 
     }
@@ -431,6 +430,35 @@ public class LinkedLists {
             return strb.toString();
         }
     }
+
+
+    static Node removeNodes(Node list, int x) {
+        Node prev = null;
+        Node curr = list;
+        Node head = list;
+        while(curr!=null) {
+            if(curr.data > x) {
+                if(prev == null) {
+                    prev = curr;
+                    curr = curr.next;
+                    prev.next = null;
+                    prev = null;
+                    head = curr;
+                }
+                else {
+                    prev.next = curr.next;
+                    curr = curr.next;
+                }
+            }
+            else {
+                prev = curr;
+                curr = curr.next;
+            }
+
+        }
+        return head;
+    }
+
 
     public static class LinkedlistNode<T> {
         LinkedlistNode next = null;

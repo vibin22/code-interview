@@ -16,6 +16,7 @@ public class Anagram {
         int num_unique_chars = 0;
         int num_completed_t = 0;
         char[] s_array = s.toCharArray();
+
         for (char c : s_array) { // count number of each char in s.
             if (letters[c] == 0) ++num_unique_chars;
             ++letters[c];
