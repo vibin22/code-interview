@@ -297,6 +297,34 @@ public class LinkedLists {
 
     //********************************************************
 
+    static Node removeNodes(Node list, int x) {
+        Node prev = null;
+        Node curr = list;
+        Node head = list;
+        while (curr != null) {
+            if (curr.data > x) {
+                if (prev == null) {
+                    prev = curr;
+                    curr = curr.next;
+                    prev.next = null;
+                    prev = null;
+                    head = curr;
+                } else {
+                    prev.next = curr.next;
+                    curr = curr.next;
+                }
+            } else {
+                prev = curr;
+                curr = curr.next;
+            }
+
+        }
+        return head;
+    }
+
+
+    //**********************************************************
+
     /**
      * DELETE MIDDLE NODE
      * Implement an algorithm to delete a node in the middle (i.e., any node but
@@ -315,10 +343,6 @@ public class LinkedLists {
         n.next = next.next;
         return true;
     }
-
-
-    //**********************************************************
-
 
     /**
      * reverse the linked list and compare the reversed list to the original list. If they're the
@@ -343,6 +367,8 @@ public class LinkedLists {
         return head;
     }
 
+    //**********************************************************
+
     boolean isEqual(LinkedlistNode one, LinkedlistNode two) {
         while (one != null && two != null) {
             if (one.data != two.data) {
@@ -356,11 +382,13 @@ public class LinkedLists {
         return one == null && two == null;
     }
 
-    //**********************************************************
+
+    //************************************************************
 
     /**
      * Loop Detection: Given a circular linked list, implement an algorithm that returns the node at the
-       beginning of the loop.
+     * beginning of the loop.
+     *
      * @param head
      * @return
      */
@@ -394,158 +422,128 @@ public class LinkedLists {
         return fast;
     }
 
+//Node InsertNth(Node head, int data, int position) {
+//    // This is a "method-only" submission.
+//    // You only need to complete this method.
+//
+//    Node node = head;
+//
+//    if (position == 0) {
+//        node = new Node();
+//        node.data = data;
+//        node.next = head;
+//        return node;
+//    } else {
+//        while (--position > 0) {
+//            node = node.next;
+//        }
+//        Node i = node.next;
+//        node.next = new Node();
+//        node.next.data = data;
+//        node.next.next = i;
+//        return head;
+//    }
+//
+//}
+        public static class LinkedlistNode<T> {
+            LinkedlistNode next = null;
+            int length = 0;
+            private T data = null;
 
-    //************************************************************
-
-    public static class Node {
-        Node next = null;
-        int data;
-
-        public Node(int d) {
-            data = d;
-        }
-
-        void appendToTail(int d) {
-            Node end = new Node(d);
-            Node n = this;
-            while (n.next != null) {
-                //just moving the node to next until we find the last node
-                n = n.next;
+            LinkedlistNode(T d) {
+                data = d;
             }
-            n.next = end;
-        }
 
-        int value() {
-            return this.data;
-        }
-
-        String print() {
-            StringBuilder strb = new StringBuilder();
-            Node tmp = this;
-            while (tmp != null) {
-                //System.out.println();
-                strb.append(tmp.value());
-                tmp = tmp.next;
-            }
-            return strb.toString();
-        }
-    }
-
-
-    static Node removeNodes(Node list, int x) {
-        Node prev = null;
-        Node curr = list;
-        Node head = list;
-        while(curr!=null) {
-            if(curr.data > x) {
-                if(prev == null) {
-                    prev = curr;
-                    curr = curr.next;
-                    prev.next = null;
-                    prev = null;
-                    head = curr;
+            void appendToTail(T d) {
+                LinkedlistNode end = new LinkedlistNode(d);
+                LinkedlistNode n = this;
+                while (n.next != null) {
+                    n = n.next;
                 }
-                else {
-                    prev.next = curr.next;
-                    curr = curr.next;
+                n.next = end;
+            }
+
+            T value() {
+                return this.data;
+            }
+
+            String listAllNodes() {
+                StringBuilder strb = new StringBuilder();
+                LinkedlistNode tmp = this;
+                while (tmp != null) {
+
+                    strb.append(tmp.value() + "\t ->");
+                    tmp = tmp.next;
+                }
+                return strb.toString();
+            }
+
+            int length() {
+                LinkedlistNode tmp = this;
+
+                while (tmp != null) {
+                    length++;
+                    tmp = tmp.next;
+                }
+                return length - 1;
+            }
+        }
+
+            public static class PartialSum {
+                public LinkedlistNode sum = null;
+                public int carry = 0;
+
+
+            }
+
+
+            //******************************************//
+            // insert node at nth position
+
+            void Print(Node head) {
+
+                StringBuilder strbldr = new StringBuilder();
+                Node temp = head;
+                while (temp != null) {
+                    System.out.println(temp.data);
+                    temp = temp.next;
                 }
             }
-            else {
-                prev = curr;
-                curr = curr.next;
+
+
+            public static class Node {
+                Node next = null;
+                int data;
+
+                public Node(int d) {
+                    data = d;
+                }
+
+                void appendToTail(int d) {
+                    Node end = new Node(d);
+                    Node n = this;
+                    while (n.next != null) {
+                        //just moving the node to next until we find the last node
+                        n = n.next;
+                    }
+                    n.next = end;
+                }
+
+                int value() {
+                    return this.data;
+                }
+
+                String print() {
+                    StringBuilder strb = new StringBuilder();
+                    Node tmp = this;
+                    while (tmp != null) {
+                        //System.out.println();
+                        strb.append(tmp.value());
+                        tmp = tmp.next;
+                    }
+                    return strb.toString();
+                }
             }
-
-        }
-        return head;
-    }
-
-    //******************************************//
-    // insert node at nth position
-
-    Node InsertNth(Node head, int data, int position) {
-        // This is a "method-only" submission.
-        // You only need to complete this method.
-
-        Node node = head;
-
-        if (position == 0){
-            node = new Node();
-            node.data = data;
-            node.next = head;
-            return node;
-        }
-        else {
-            while(--position > 0){
-                node = node.next;
-            }
-            Node i = node.next;
-            node.next = new Node();
-            node.next.data = data;
-            node.next.next = i;
-            return head;
-        }
-
-
-    public static class LinkedlistNode<T> {
-        LinkedlistNode next = null;
-        int length = 0;
-        private T data = null;
-
-        LinkedlistNode(T d) {
-            data = d;
-        }
-
-        void appendToTail(T d) {
-            LinkedlistNode end = new LinkedlistNode(d);
-            LinkedlistNode n = this;
-            while (n.next != null) {
-                n = n.next;
-            }
-            n.next = end;
-        }
-
-        T value() {
-            return this.data;
-        }
-
-        String listAllNodes() {
-            StringBuilder strb = new StringBuilder();
-            LinkedlistNode tmp = this;
-            while (tmp != null) {
-
-                strb.append(tmp.value() + "\t ->");
-                tmp = tmp.next;
-            }
-            return strb.toString();
-        }
-
-        int length() {
-            LinkedlistNode tmp = this;
-
-            while (tmp != null) {
-                length++;
-                tmp = tmp.next;
-            }
-            return length - 1;
-        }
-    }
-
-    public static class PartialSum {
-        public LinkedlistNode sum = null;
-        public int carry = 0;
-
-
-    }
-
-    void Print(Node head) {
-
-        StringBuilder strbldr = new StringBuilder();
-        Node temp = head;
-        while (temp!=null) {
-            System.out.println(temp.data);
-            temp=temp.next;
-        }
-    }
 
 }
 

@@ -30,8 +30,8 @@ public class AddMatrixDigonal {
             primedigonal= primedigonal+matrix[i][i];
         }
 
-        int r = matrix.length - 1;
-        int c = 0;
+        //int r = matrix.length - 1;
+        //int c = 0;
 // add second diagonal
         for (int i=0;i<length;i++) {
             secdigonal= secdigonal+ matrix[length-i-1][i];
