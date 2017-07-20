@@ -10,7 +10,7 @@ public class Problem1 {
         int[] intAry = new int[6];
 
 
-        intAry[0] = 500;
+        intAry[0] = 5;
         intAry[1] = 6;
         intAry[2] = 8;
         intAry[3] = 8;

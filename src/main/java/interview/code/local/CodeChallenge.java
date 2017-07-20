@@ -53,7 +53,7 @@ public class CodeChallenge {
 
                     //System.out.println(" i ->" + i + "j ->" + j);
 
-                    if (j != lowerlimt) {
+                    if (r != lowerlimt) {
                         // move left
 
                         if (val == twod[i][j - 1])
