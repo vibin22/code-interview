@@ -49,7 +49,29 @@ public class Palindrome {
     }
 
     public static void main(String[] args) {
-        String pali = "malayaaml";
-        System.out.println(isPermutationOfPalindrome(pali));
+        String pali = "malayalamh";
+        System.out.println(paliPractice(pali));
+    }
+
+
+    public static boolean paliPractice(String word) {
+
+        int countOfOddLetters=0;
+        int intVal=0;
+        int[] asciiTable = new int[26];
+
+        for (char c: word.toCharArray()) {
+            intVal = getCharNumber(c);
+            asciiTable[intVal]++;
+
+            System.out.println(asciiTable[intVal] % 2==1);
+
+            if (asciiTable[intVal] % 2 == 1) {
+                countOfOddLetters++;
+            } else {
+                countOfOddLetters--;
+            }
+        }
+        return countOfOddLetters<=1;
     }
 }

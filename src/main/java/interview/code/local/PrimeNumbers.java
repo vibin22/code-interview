@@ -13,10 +13,11 @@ public class PrimeNumbers {
         int i =0;
         int num =0;
         //Empty String
-        String  primeNumbers = "";
-        for (i = 1; i <= 100; i++)
+        StringBuilder  primeNumbers = new StringBuilder();
+        for (i = 1; i <= 10; i++)
         {
             int counter=0;
+
             for(num =i; num>=1; num--)
             {
                 if(i%num==0)
@@ -27,9 +28,9 @@ public class PrimeNumbers {
             if (counter == 2)
             {
                 //Appended the Prime number to the String
-                primeNumbers = primeNumbers + i + " ";
+                primeNumbers = primeNumbers.append(  i + " ");
             }
         }
-        System.out.println(primeNumbers);
+        System.out.println(primeNumbers.toString());
     }
 }

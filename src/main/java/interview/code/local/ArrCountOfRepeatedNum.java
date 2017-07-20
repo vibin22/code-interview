@@ -1,5 +1,6 @@
 package interview.code.local;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Set;
@@ -28,6 +29,7 @@ public class ArrCountOfRepeatedNum {
         int[] intary1 = new int[14];
 
        String s =  sortByrank(intAry);
+    // sortByrank(intAry);
 
          System.out.println(s);
         
@@ -36,9 +38,9 @@ public class ArrCountOfRepeatedNum {
 
     static String  sortByrank(int[] arr) {
         StringBuilder sb = new StringBuilder();
-        int tmp = 0;
-        boolean present = false;
-        HashSet temp = new HashSet<Integer>();
+       // int tmp = 0;
+       // boolean present = false;
+      //  HashSet temp = new HashSet<Integer>();
         Hashtable table = new Hashtable<Integer, Integer>();
 
         for (int i = 0; i < arr.length; i++) {
@@ -50,12 +52,21 @@ public class ArrCountOfRepeatedNum {
             }
         }
 
+        String [] strArr = new String[table.size()];
         Set<Integer> keys = table.keySet();
+        int k =0;
         for (Integer key : keys) {
-            //System.out.println("Value of " + key + " is: " + table.get(key));
-            sb.append(key+""+table.get(key) +" ");
+            strArr[k] = key+""+table.get(key);
+            k++;
         }
-return sb.toString();
+
+        Arrays.sort(strArr);
+
+        for (String s: strArr){
+            sb.append(s+" ");
+        }
+
+        return sb.toString();
     }
 
 
