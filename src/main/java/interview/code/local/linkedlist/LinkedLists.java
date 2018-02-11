@@ -1,4 +1,4 @@
-package interview.code.local;
+package interview.code.local.linkedlist;
 
 import java.util.HashSet;
 import java.util.Hashtable;

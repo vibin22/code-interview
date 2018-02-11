@@ -16,6 +16,7 @@ public class IsUnique {
         boolean[] char_present = new boolean[128];
         for (int i = 0; i < str.length(); i++) {
             int val = str.charAt(i);
+            System.out.println(val);
             if (char_present[val]) return false;
             char_present[val] = true;
         }
@@ -35,10 +36,14 @@ public class IsUnique {
         }
         return true;
     }
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         String[] words = {"abcde", "hello", "apple", "kite", "padle"};
         for (String word : words) {
             System.out.println(word + ": " + isUniqueChars(word));
         }
+    }*/
+
+    public static void main(String[] args) {
+        isUniqueChars("TEST");
     }
 }
