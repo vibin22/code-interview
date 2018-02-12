@@ -20,17 +20,38 @@ public class Exp {
         TreeNode node2 = new TreeNode();
         node2.value = "C";
 
-        head.left=node1;
 
-        node1.left=node2;
+        TreeNode node3 = new TreeNode();
+        node3.value = "D";
 
-        searchAllPath(head);
-    }
 
-    public static class TreeNode {
-        public String value;
-        public TreeNode left;
-        public TreeNode right;
+        TreeNode node4 = new TreeNode();
+        node4.value = "E";
+
+        /*
+
+         A
+        /
+        B
+       /
+       C
+         */
+
+        head.left = node1;
+
+        node1.left = node2;
+
+        head.right = node3;
+        node3.left = node4;
+
+        ArrayList<String> ls = new ArrayList<>();
+
+
+        inOrderTraversal(head, ls);
+
+        for(String s:ls){
+            System.out.println(s);
+        }
     }
 
     /*
@@ -51,25 +72,50 @@ public class Exp {
 
         StringBuilder sb = new StringBuilder();
         TreeNode tree = root;
-        List<String> result = new ArrayList<>();
+        List<String> result = new ArrayList<String>();
 
-        if(root!=null) {
+        if (root != null) {
 
-            while (tree!=null) {
+            while (tree != null) {
 
-                if(tree.left!=null) {
-                    sb.append(tree.value+"->");
+                if (tree.left != null) {
+                    sb.append(tree.value + "->");
                 } else {
                     sb.append(tree.value);
                 }
-                tree=tree.left;
+                tree = tree.left;
             }
             // sb = "A->B->D"
         }
 
-        String str =  sb.toString();
+        String str = sb.toString();
         System.out.println(str);
         return result;
 
     }
+
+    public static void inOrderTraversal(TreeNode node, ArrayList<String> al) {
+        //if (node != null) {
+
+           if (node!=null) {
+               inOrderTraversal(node.left, al);
+               visit(node, al);
+               inOrderTraversal(node.right, al);
+           }
+
+    }
+
+    public static void visit(TreeNode node, ArrayList<String> al) {
+
+        if (node != null) {
+            al.add(node.value);
+        }
+    }
+
+    public static class TreeNode {
+        public String value;
+        public TreeNode left;
+        public TreeNode right;
+    }
+
 }
