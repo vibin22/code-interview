@@ -1,18 +1,15 @@
 package interview.code.local.treesandgraph;
 
-public class InorderTraversal {
+public class preOrderTraversal {
 
+    //Pre-Order: Traverse current node, then left node, then right node
 
-     //In-Order: Traverse left node, current node, then right [usually used for binary search trees]
-    //When performed on a binary search tree, it visits the nodes in ascending order (hence the name"in-order").
-
-
-
-    static void inOrderTraversal(TreeNode node) {
+    static void preOrderTraversal(TreeNode node) {
         if (node != null) {
-            inOrderTraversal(node.left);
             visit(node);
-            inOrderTraversal(node.right);
+            preOrderTraversal(node.left);
+            preOrderTraversal(node.right);
+
         }
     }
 
@@ -29,10 +26,7 @@ public class InorderTraversal {
         // We needed this code for other files, so check out the code in the library
         TreeNode root = TreeNode.createMinimalBST(array);
         root.print();
-        inOrderTraversal(root);
+        preOrderTraversal(root);
 
     }
-
-
-
 }
